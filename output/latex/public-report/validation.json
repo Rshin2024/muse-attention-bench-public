@@ -1,0 +1,102 @@
+{
+  "PDF_XMP_metadata": false,
+  "PDF_document_JavaScript_or_open_actions": false,
+  "PDF_document_information": [
+    "Title only"
+  ],
+  "PDF_embedded_attachments": 0,
+  "Tectonic_compile": "PASS",
+  "additional_independent_final_QA_pages": [
+    1,
+    13,
+    14
+  ],
+  "all_pages_rendered_and_visually_reviewed": true,
+  "artifacts": [
+    {
+      "bytes": 126400,
+      "path": "output/pdf/Muse_Attention_Public_Report.pdf",
+      "sha256": "9ecbe4bcca41a2ad2cdcb9b595dc5d83fa024efcc6168a3cf8cb423db83ab2f5"
+    },
+    {
+      "bytes": 79025,
+      "path": "output/latex/public-report/main.tex",
+      "sha256": "99c024693345ed0b93ac2d064ea1de379e97ded8b9774d9c7ce85d294198722f"
+    },
+    {
+      "bytes": 1323,
+      "path": "output/latex/public-report/build-validation.json",
+      "sha256": "e68b5eead2e3d1875e1d3e6c720349b334deaf93d9e590da591caea5abba549e"
+    },
+    {
+      "bytes": 1266273,
+      "path": "data/results.json",
+      "sha256": "b644b8194eded4a612f95f6e96e68697cd69e2267dcf7e3ef852ace512b35843"
+    },
+    {
+      "bytes": 7422,
+      "path": "data/profile.json",
+      "sha256": "26f21176e4bf191e50df2acac7bd21a330cf0963b86bb52779c5146a8149a86e"
+    },
+    {
+      "bytes": 6871,
+      "path": "scripts/build_public_report.py",
+      "sha256": "efa46a803ded95181540d4a5325bbdb7207629cf75d813b2766cdfc846937a43"
+    },
+    {
+      "bytes": 5705,
+      "path": "scripts/package_public_source.py",
+      "sha256": "8d6aae264fc9708d25ba7022bd6ee187bea14cad79b7c5d98c915c2dd2f61351"
+    }
+  ],
+  "final_changed_pages_reinspected": [
+    13,
+    14
+  ],
+  "final_pages_raster_identical_to_reviewed_initial_render": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "independent_reviewer_reviewed_pages": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "kind": "public-paper-rendered-page-validation",
+  "new_GPU_or_model_experiment": false,
+  "original_PDF_copied_or_raster_redacted": false,
+  "overfull_boxes": 0,
+  "page_count": 14,
+  "page_heading_orphans_repaired": true,
+  "private_source_adjudication_or_cloud_provenance_replayed": false,
+  "private_workspace_read_by_public_builder": false,
+  "public_saved_scalar_replay": "PASS:7modelresults+2baselinecontrols",
+  "rebuilt_from_sanitized_TeX_and_public_data": true,
+  "report_author_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    11,
+    12,
+    13,
+    14
+  ],
+  "schema_version": 1,
+  "status": "PASS",
+  "task_and_candidate_source_bodies_distributed": false,
+  "vector_figures": 9
+}

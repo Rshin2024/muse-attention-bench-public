@@ -1,0 +1,57 @@
+{
+  "field_policy": {
+    "excluded": [
+      "candidate and task source bodies",
+      "native provider conversations and states",
+      "credentials and authentication material",
+      "personal identities and local paths",
+      "cloud account, resource, image, host and device identifiers",
+      "provider request identifiers",
+      "raw errors and command output",
+      "resource-operation and IAM records",
+      "exact resource chronology",
+      "original raw provenance graph and private publication gate inputs"
+    ],
+    "included": [
+      "numeric correctness observations",
+      "calibration samples",
+      "paired replay samples",
+      "shape/load statistics",
+      "scores and intervals",
+      "protocol shape facts",
+      "source hash commitments and factual review flags",
+      "attempt durations and counts",
+      "known cost estimates and unresolved reserves",
+      "nonunique hardware and software versions"
+    ]
+  },
+  "files": [
+    {
+      "bytes": 1266273,
+      "path": "results.json",
+      "sha256": "b644b8194eded4a612f95f6e96e68697cd69e2267dcf7e3ef852ace512b35843"
+    },
+    {
+      "bytes": 7422,
+      "path": "profile.json",
+      "sha256": "26f21176e4bf191e50df2acac7bd21a330cf0963b86bb52779c5146a8149a86e"
+    }
+  ],
+  "included_record_counts": {
+    "baseline_controls": 2,
+    "calibration_samples": 900,
+    "mandatory_observations": 144,
+    "model_results": 7,
+    "replay_brackets": 2160,
+    "scored_shapes": 108,
+    "swapped_pairs": 1080
+  },
+  "input_document_sha256_commitment": "8af1f8fc58713fce3b46f8d7d67d919fd6f8ce9b5040e79497c03940774c9d25",
+  "kind": "public-scientific-projection-manifest",
+  "original_input_paths_or_identifiers_included": false,
+  "private_provenance_gate_publicly_replayed": false,
+  "projection_version": 1,
+  "raw_producer_bytes_preserved_claimed": false,
+  "schema_version": 1,
+  "source_bodies_included": false
+}

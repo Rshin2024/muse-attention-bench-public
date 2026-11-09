@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "kind": "UPSTREAM_IDENTITIES_ONLY_NO_SOURCE_BODIES",
+  "problem": "muse_attention_decode",
+  "upstream_repository": "rohanarun/Auto-research-agent",
+  "upstream_commit": "023046877c6eb209bff662a64ca011fbe7403da7",
+  "original_source": "https://openkernelchallenge.dev/problems/muse_attention_decode",
+  "licensing_review_date": "2026-11-09",
+  "source_bodies_distributed": false,
+  "redistribution_grant_established": false,
+  "license_notice": "Pinned mirror ownership notice reserves original upstream task terms. Its parent MIT license does not relicense these task files.",
+  "mirror_notice_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/NOTICE.md",
+  "files": [
+    {
+      "path": "third_party/muse_attention_decode/AGENTS.md",
+      "git_blob_sha1": "022830ad5b238b619bee802f9ddb3c23f005a841",
+      "source_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/data/kernel-starters/muse_attention_decode/AGENTS.md",
+      "sha256": "c01682737af060546f7f17c480cc37309c28e6c2de1cc13c669f3f66307d3476",
+      "public_release_action": "OMITTED_SOURCE_BODY"
+    },
+    {
+      "path": "third_party/muse_attention_decode/TASK.md",
+      "git_blob_sha1": "13089e62828ceea600cf2a30bb8bad6c151d48e4",
+      "source_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/data/kernel-starters/muse_attention_decode/TASK.md",
+      "sha256": "fdc57e97579dd8579bb6cc284e454578962d30a65b1b7a526719ce220b0bba76",
+      "public_release_action": "OMITTED_SOURCE_BODY"
+    },
+    {
+      "path": "third_party/muse_attention_decode/baseline.py",
+      "git_blob_sha1": "2ac5e2e62360a28bcc03170c946b52347b021cfe",
+      "source_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/data/kernel-starters/muse_attention_decode/baseline.py",
+      "sha256": "37f51207283f85a65eb393b1dfb1344759d7df0bdec5450e34d24e7139f56ecc",
+      "public_release_action": "OMITTED_SOURCE_BODY"
+    },
+    {
+      "path": "third_party/muse_attention_decode/checks.py",
+      "git_blob_sha1": "bc51923c9041b04b0ce9e57348f10cfae84b73d9",
+      "source_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/data/kernel-starters/muse_attention_decode/checks.py",
+      "sha256": "9a046c3c38db28b325dcd1557baecdf6bc9ef941d2175f9a900ba4c230bb8055",
+      "public_release_action": "OMITTED_SOURCE_BODY"
+    },
+    {
+      "path": "third_party/muse_attention_decode/reference.py",
+      "git_blob_sha1": "490ef92dbfc085784802a65047f12ffbfda2ac32",
+      "source_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/data/kernel-starters/muse_attention_decode/reference.py",
+      "sha256": "386f7f67a1d788501e8fb9005d340423d098a0946e23810ba10878228c11a37b",
+      "public_release_action": "OMITTED_SOURCE_BODY"
+    },
+    {
+      "path": "third_party/muse_attention_decode/submission.py",
+      "git_blob_sha1": "7cafe07522219f5d70a1d23f29e3ee2fbdb497b7",
+      "source_url": "https://github.com/rohanarun/Auto-research-agent/blob/023046877c6eb209bff662a64ca011fbe7403da7/benchmarks/data/kernel-starters/muse_attention_decode/submission.py",
+      "sha256": "1c3828573c362989db3385eff9a5b67a7c66d6503e9e242d28f9b150f6fb9472",
+      "public_release_action": "OMITTED_SOURCE_BODY"
+    }
+  ],
+  "local_material_policy": "Obtain excluded task material separately subject to its original terms. Keep local copies and candidate sources outside public Git history and release archives."
+}

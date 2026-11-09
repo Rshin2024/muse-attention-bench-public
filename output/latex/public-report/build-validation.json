@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "kind": "public-paper-build-receipt",
+  "status": "BUILT_AND_NUMERICALLY_CHECKED_VISUAL_REVIEW_RECORDED_SEPARATELY",
+  "data_and_report_binding": "PASS",
+  "Tectonic_compile": "PASS",
+  "overfull_boxes": 0,
+  "vector_figures": 9,
+  "public_projection_not_private_provenance_replay": true,
+  "candidate_import_or_execution": false,
+  "cloud_model_or_GPU_calls": false,
+  "private_workspace_read": false,
+  "raw_build_logs_included": false,
+  "page_count": 14,
+  "document_info_keys": [
+    "/Title"
+  ],
+  "XMP_metadata_present": false,
+  "embedded_attachments": 0,
+  "JavaScript_or_document_actions_present": false,
+  "artifacts": [
+    {
+      "path": "output/latex/public-report/main.tex",
+      "bytes": 79025,
+      "sha256": "99c024693345ed0b93ac2d064ea1de379e97ded8b9774d9c7ce85d294198722f"
+    },
+    {
+      "path": "data/results.json",
+      "bytes": 1266273,
+      "sha256": "b644b8194eded4a612f95f6e96e68697cd69e2267dcf7e3ef852ace512b35843"
+    },
+    {
+      "path": "data/profile.json",
+      "bytes": 7422,
+      "sha256": "26f21176e4bf191e50df2acac7bd21a330cf0963b86bb52779c5146a8149a86e"
+    },
+    {
+      "path": "output/pdf/Muse_Attention_Public_Report.pdf",
+      "bytes": 126400,
+      "sha256": "9ecbe4bcca41a2ad2cdcb9b595dc5d83fa024efcc6168a3cf8cb423db83ab2f5"
+    }
+  ]
+}

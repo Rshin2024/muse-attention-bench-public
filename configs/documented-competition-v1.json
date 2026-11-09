@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "name": "documented-competition-v1",
+  "problem": "muse_attention_decode",
+  "official_equivalent": false,
+  "scope": "Reconstruction of the documented public competition protocol; not the hosted judge",
+  "seed": 20261107,
+  "runtime": {
+    "base_image": "lmsysorg/sglang@sha256:a0ae9cefecc0fb68e74a6f3b7f338eb80a53e3e6df4637ec2f024abc5fec07af",
+    "platform": "linux/amd64",
+    "sglang_commit": "a55ab7d5ae1bba59ac351e55026fe7f7644ecc5f",
+    "source_commit_status": "Expected from published baseline header; independently record installed runtime"
+  },
+  "hardware": {
+    "gpu": "NVIDIA H200 SXM",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "visible_devices": 1,
+    "sxm_operator_attestation_required": true
+  },
+  "timing": {
+    "repeats": 20,
+    "warmup": 3,
+    "flush_bytes": 134217728,
+    "bootstrap_samples": 2000,
+    "calibration_repeats": 100,
+    "confidence_level": 0.95,
+    "minimum_relative_interval": 0.015,
+    "cold_l2_each_replay": true,
+    "fixed_replay_cost": "calibrated locally; exact hosted calibration is not public",
+    "run_timeout_seconds": 900
+  },
+  "scoring": {
+    "shape_speedup": "median of adjacent swapped-order paired ratios",
+    "load_time": "sum(weight * shape_time)",
+    "overall_speedup": "geometric mean of six baseline_load/candidate_load ratios"
+  },
+  "test_cases": [
+    {
+      "id": "test-01",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 1,
+        "ctx": 10,
+        "heads": "tp8",
+        "layer": "sliding"
+      }
+    },
+    {
+      "id": "test-02",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 3,
+        "ctx": 2047,
+        "heads": "tp8",
+        "layer": "sliding"
+      }
+    },
+    {
+      "id": "test-03",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 5,
+        "ctx": 5000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "q_len": 8,
+        "spread": "mixed",
+        "page": 1
+      }
+    },
+    {
+      "id": "test-04",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 4,
+        "ctx": 3000,
+        "heads": "tp8",
+        "layer": "full"
+      }
+    },
+    {
+      "id": "test-05",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 8,
+        "ctx": 8192,
+        "heads": "dp",
+        "layer": "full",
+        "spread": "mixed"
+      }
+    },
+    {
+      "id": "test-06",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 2,
+        "ctx": 100000,
+        "heads": "tp8",
+        "layer": "full",
+        "q_len": 8,
+        "page": 1
+      }
+    },
+    {
+      "id": "test-07",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 4,
+        "ctx": 6000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "dist": "edges",
+        "page": 1
+      }
+    },
+    {
+      "id": "test-08",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 4,
+        "ctx": 6000,
+        "heads": "tp8",
+        "layer": "full",
+        "q_len": 8,
+        "dist": "edges"
+      }
+    },
+    {
+      "id": "test-09",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 1,
+        "ctx": 1048576,
+        "heads": "tp8",
+        "layer": "full",
+        "q_len": 8
+      }
+    },
+    {
+      "id": "test-10",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 3,
+        "ctx": 4000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "q_len": 8,
+        "page": 1,
+        "kv_scale": 0.015625
+      }
+    },
+    {
+      "id": "test-11",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 2,
+        "ctx": 9000,
+        "heads": "tp8",
+        "layer": "full",
+        "kv_scale": 0.015625
+      }
+    },
+    {
+      "id": "test-12",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 4,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "spread": "mixed",
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "test-13",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 4,
+        "ctx": 6000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "q_len": 8,
+        "dist": "soft",
+        "page": 1
+      }
+    },
+    {
+      "id": "test-14",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 2,
+        "ctx": 20000,
+        "heads": "dp",
+        "layer": "full",
+        "q_len": 8,
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "test-15",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 4,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "spread": "mixed",
+        "dist": "coherent",
+        "page": 1
+      }
+    },
+    {
+      "id": "test-16",
+      "load": null,
+      "weight": 0,
+      "kwargs": {
+        "batch": 2,
+        "ctx": 20000,
+        "heads": "dp",
+        "layer": "full",
+        "q_len": 8,
+        "dist": "coherent"
+      }
+    }
+  ],
+  "scored_cases": [
+    {
+      "id": "scored-01",
+      "load": "decode 1",
+      "weight": 46,
+      "kwargs": {
+        "batch": 1,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "page": 1,
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "scored-02",
+      "load": "decode 1",
+      "weight": 16,
+      "kwargs": {
+        "batch": 1,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "page": 1,
+        "dist": "coherent"
+      }
+    },
+    {
+      "id": "scored-03",
+      "load": "decode 16",
+      "weight": 46,
+      "kwargs": {
+        "batch": 16,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "page": 1,
+        "spread": "agentic",
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "scored-04",
+      "load": "decode 16",
+      "weight": 16,
+      "kwargs": {
+        "batch": 16,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "page": 1,
+        "spread": "agentic",
+        "dist": "coherent"
+      }
+    },
+    {
+      "id": "scored-05",
+      "load": "decode 32",
+      "weight": 46,
+      "kwargs": {
+        "batch": 32,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "page": 1,
+        "spread": "agentic",
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "scored-06",
+      "load": "decode 32",
+      "weight": 16,
+      "kwargs": {
+        "batch": 32,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "page": 1,
+        "spread": "agentic",
+        "dist": "coherent"
+      }
+    },
+    {
+      "id": "scored-07",
+      "load": "verify 1",
+      "weight": 46,
+      "kwargs": {
+        "batch": 1,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "page": 1,
+        "q_len": 8,
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "scored-08",
+      "load": "verify 1",
+      "weight": 16,
+      "kwargs": {
+        "batch": 1,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "page": 1,
+        "q_len": 8,
+        "dist": "coherent"
+      }
+    },
+    {
+      "id": "scored-09",
+      "load": "verify 16",
+      "weight": 46,
+      "kwargs": {
+        "batch": 16,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "page": 1,
+        "q_len": 8,
+        "spread": "agentic",
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "scored-10",
+      "load": "verify 16",
+      "weight": 16,
+      "kwargs": {
+        "batch": 16,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "page": 1,
+        "q_len": 8,
+        "spread": "agentic",
+        "dist": "coherent"
+      }
+    },
+    {
+      "id": "scored-11",
+      "load": "verify 32",
+      "weight": 46,
+      "kwargs": {
+        "batch": 32,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "sliding",
+        "page": 1,
+        "q_len": 8,
+        "spread": "agentic",
+        "dist": "soft"
+      }
+    },
+    {
+      "id": "scored-12",
+      "load": "verify 32",
+      "weight": 16,
+      "kwargs": {
+        "batch": 32,
+        "ctx": 80000,
+        "heads": "tp8",
+        "layer": "full",
+        "page": 1,
+        "q_len": 8,
+        "spread": "agentic",
+        "dist": "coherent"
+      }
+    }
+  ],
+  "known_gaps": [
+    "Hosted anti-cheat and process isolation are not reproduced",
+    "Organizer private seeds, repeat counts and calibration details are unavailable",
+    "Image digest is the published tag resolved locally, not an organizer-signed historical attestation",
+    "SXM form factor, node exclusivity, clocks and thermals need operator verification",
+    "This repository has not yet been validated on H200 hardware"
+  ]
+}

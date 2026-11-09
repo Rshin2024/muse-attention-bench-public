@@ -1,0 +1,70 @@
+{
+  "Git_history": {
+    "author_identity": "Project name and public noreply address; no personal name, work email or machine hostname",
+    "existing_commits_before_initial_release": 0,
+    "fresh_repository_initialized": true,
+    "old_history_or_object_alternates_imported": false
+  },
+  "bindings": {
+    "PDF_sha256": "9ecbe4bcca41a2ad2cdcb9b595dc5d83fa024efcc6168a3cf8cb423db83ab2f5",
+    "dataset_sha256": "b644b8194eded4a612f95f6e96e68697cd69e2267dcf7e3ef852ace512b35843",
+    "source_archive": "output/latex/Muse_Attention_Public_Source.zip",
+    "source_archive_sha256": "b48eb2618532bddf0933232b05159903e2c49947df96ead77ee273d056fc9b9c"
+  },
+  "checked_on": "2026-11-09",
+  "kind": "public-release-audit-receipt",
+  "licensing": {
+    "blanket_task_redistribution_grant_claimed": false,
+    "candidate_or_diagnostic_sources_distributed": 0,
+    "embedded_copy_or_archive_findings": 0,
+    "excluded_exact_source_body_digests_checked": 24,
+    "optional_local_download_explicit_only": true,
+    "original_harness_modules_preserved_byte_for_byte": 18,
+    "review_document": "docs/LICENSING.md",
+    "upstream_public_attribution_retained": true,
+    "upstream_task_files_distributed": 0
+  },
+  "original_repository_private_at_verification": true,
+  "original_tracked_files_changed": false,
+  "payload": {
+    "PDF_copies_checked": 2,
+    "ZIP_members": 61,
+    "audited_files_before_postarchive_receipts": 62,
+    "decoded_PDF_streams_independently_checked": 82,
+    "payloads_including_ZIP_members": 123,
+    "source_archive_payload_files": 60
+  },
+  "post_archive_receipts_intentionally_outside_ZIP": true,
+  "privacy": {
+    "PDF_JavaScript_or_document_actions": false,
+    "PDF_XMP": false,
+    "PDF_attachments": 0,
+    "PDF_rebuilt_from_clean_source": true,
+    "PDF_title_only_information": true,
+    "findings": 0,
+    "independent_private_identifier_dictionary_entries": 281,
+    "native_provider_conversations_or_credentials_included": false,
+    "old_PDFs_or_ZIPs_copied": false,
+    "personal_cloud_metadata_source_records_omitted": true,
+    "private_dictionary_values_published": false,
+    "root_private_identifier_dictionary_entries": 198
+  },
+  "schema_version": 1,
+  "scope": "Derived public payload; original audit repository and original evidence remain private. No universal secret-absence guarantee is claimed.",
+  "status": "PASS",
+  "validation": {
+    "CPU_tests_passed": 63,
+    "all_pages_visually_reviewed": true,
+    "authored_performance_points": 4,
+    "baseline_controls_replayed": 2,
+    "independent_extracted_source_rebuild": "PASS:9 saved reports,63 tests,Tectonic,identical TeX and all14 page text",
+    "new_GPU_or_model_calls": false,
+    "paper_pages": 14,
+    "private_source_adjudication_or_cloud_provenance_replayed": false,
+    "raw_calibration_samples": 900,
+    "raw_replay_brackets": 2160,
+    "saved_model_reports_replayed": 7,
+    "unchanged_starters": 3,
+    "vector_figures": 9
+  }
+}

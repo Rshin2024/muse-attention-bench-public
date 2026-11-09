@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "documentation_verified_on": "2026-11-07",
+  "purpose": "Access and configuration only; no inference or model trial is authorized by this file",
+  "inference_enabled": false,
+  "model_spend_limit_usd": null,
+  "selection_status": "Seven configured comparison models; freeze transport, account entitlement and common conditions before a cohort",
+  "common_broker": {
+    "action_contract": "runner-neutral JSON action and identical external shell/GPU bridge",
+    "built_in_provider_tools": "disabled",
+    "network_from_actor": "disabled",
+    "research_wall_clock_seconds": 1800,
+    "diagnostic_budget": 3,
+    "input_token_cap": 128000,
+    "per_turn_output_token_cap": 32768,
+    "reasoning_policy": "native high setting; same spelling does not imply equal reasoning compute",
+    "limits_status": "validate against authenticated account/model capabilities before trials"
+  },
+  "providers": [
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "model": "gpt-6.1-sol",
+      "documented_alternatives": [],
+      "protocol": "openai_responses",
+      "base_url": "https://api.openai.com/v1",
+      "inference_path": "/responses",
+      "catalog_path": "/models",
+      "api_key_env": "OPENAI_API_KEY",
+      "api_key_file_env": "OPENAI_API_KEY_FILE",
+      "reasoning_parameters": {
+        "reasoning": {
+          "effort": "high"
+        }
+      },
+      "access_status": "Example configuration only; verify your own credentials, account entitlement and provider settings before a trial.",
+      "inference_validated": false,
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "https://developers.openai.com/api/reference/resources/models/methods/list",
+        "https://developers.openai.com/api/docs/models/gpt-6-astra"
+      ],
+      "configured_models": [
+        "gpt-6.1-sol",
+        "gpt-6-astra"
+      ]
+    },
+    {
+      "id": "anthropic",
+      "label": "Anthropic",
+      "model": "claude-opus-5-5",
+      "documented_alternatives": [
+        "claude-sonnet-5-5",
+        "claude-haiku-5-5"
+      ],
+      "protocol": "anthropic_messages",
+      "base_url": "https://api.anthropic.com/v1",
+      "inference_path": "/messages",
+      "catalog_path": "/models",
+      "api_version": "2026-10-21",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "api_key_file_env": "ANTHROPIC_API_KEY_FILE",
+      "reasoning_parameters": {
+        "output_config": {
+          "effort": "high"
+        }
+      },
+      "access_status": "Example configuration only; verify your own credentials, account entitlement and provider settings before a trial.",
+      "inference_validated": false,
+      "sources": [
+        "https://platform.claude.com/docs/en/models/overview",
+        "https://platform.claude.com/docs/en/api/models/list",
+        "https://platform.claude.com/docs/en/build-with-claude/effort",
+        "https://platform.claude.com/docs/en/models/fable-5-1/overview"
+      ],
+      "configured_models": [
+        "claude-opus-5-5",
+        "claude-fable-5-1"
+      ],
+      "parameter_notes": [
+        "Claude Fable 5.1 uses always-on adaptive thinking; control effort with output_config.effort.",
+        "Claude Fable 5.1 rejects forced tool choice; use the shared JSON-action broker with provider built-in tools disabled."
+      ]
+    },
+    {
+      "id": "deepseek",
+      "label": "DeepSeek",
+      "model": "deepseek-v4-pro",
+      "documented_alternatives": [
+        "deepseek-flash"
+      ],
+      "protocol": "openai_responses",
+      "base_url": "https://api.deepseek.com",
+      "inference_path": "/responses",
+      "catalog_path": "/models",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "api_key_file_env": "DEEPSEEK_API_KEY_FILE",
+      "reasoning_parameters": {
+        "reasoning": {
+          "effort": "high"
+        }
+      },
+      "access_status": "Example configuration only; verify your own credentials, account entitlement and provider settings before a trial.",
+      "inference_validated": false,
+      "sources": [
+        "https://api-docs.deepseek.com/api/list-models/",
+        "https://api-docs.deepseek.com/api/create-response/"
+      ],
+      "configured_models": [
+        "deepseek-v4-pro"
+      ]
+    },
+    {
+      "id": "gemini",
+      "label": "Google Gemini 4 Argon",
+      "model": "gemini-4-argon",
+      "documented_alternatives": [],
+      "protocol": "google_generate_content",
+      "base_url": "https://aiplatform.googleapis.com/v1beta1",
+      "inference_path_template": "/projects/{project}/locations/{location}/publishers/google/models/{model}:generateContent",
+      "catalog_path": null,
+      "project_env": "GOOGLE_CLOUD_PROJECT",
+      "location_env": "GOOGLE_CLOUD_LOCATION",
+      "location_default": "global",
+      "authentication": "Existing gcloud CLI OAuth token for trusted-host REST, Google ADC, or a separately configured supported API-key flow",
+      "authentication_selection": "gcloud_cli_oauth",
+      "authentication_options": [
+        {
+          "id": "gcloud_cli_oauth",
+          "credential_command": [
+            "gcloud",
+            "auth",
+            "print-access-token"
+          ],
+          "execution_scope": "trusted controller only; keep token in memory and never pass it to the actor",
+          "http_auth_scheme": "Bearer",
+          "adc_required": false,
+          "credential_acquisition_verified": false,
+          "inference_entitlement_verified": false
+        },
+        {
+          "id": "google_adc",
+          "credential_file_env": "GOOGLE_APPLICATION_CREDENTIALS",
+          "credential_acquisition_verified": false,
+          "inference_entitlement_verified": false
+        }
+      ],
+      "credential_file_env": "GOOGLE_APPLICATION_CREDENTIALS",
+      "reasoning_parameters": {
+        "generationConfig": {
+          "thinkingConfig": {
+            "thinkingLevel": "HIGH"
+          }
+        }
+      },
+      "parameter_notes": [
+        "Custom temperature, top_p and top_k are ignored by this model",
+        "Do not send thinking_budget or MINIMAL thinking level",
+        "Keep any continuation behavior fixed; long decoding requires v1beta1"
+      ],
+      "access_status": "Example configuration only; verify your own credentials, account entitlement and provider settings before a trial.",
+      "inference_validated": false,
+      "sources": [
+        "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon",
+        "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4",
+        "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon",
+        "https://docs.cloud.google.com/docs/authentication/rest"
+      ],
+      "configured_models": [
+        "gemini-4-argon"
+      ]
+    },
+    {
+      "id": "glm",
+      "label": "Z.ai GLM",
+      "model": "glm-5.3",
+      "documented_alternatives": [],
+      "protocol": "openai_chat_completions",
+      "base_url": "https://api.z.ai/api/paas/v4",
+      "inference_path": "/chat/completions",
+      "catalog_path": null,
+      "api_key_env": "ZAI_API_KEY",
+      "api_key_file_env": "ZAI_API_KEY_FILE",
+      "endpoint_selection_required": true,
+      "endpoint_options": {
+        "general_prepaid": "https://api.z.ai/api/paas/v4",
+        "coding_plan": "https://api.z.ai/api/coding/paas/v4"
+      },
+      "google_cloud_route": {
+        "status": "No documented serverless GLM-5.3 route established in this audit",
+        "endpoint": null,
+        "older_glm_5_maas_retirement_date": "2026-10-21",
+        "automatic_substitution_or_deployment": false,
+        "source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models"
+      },
+      "reasoning_parameters": {
+        "thinking": {
+          "type": "enabled"
+        },
+        "reasoning_effort": "high"
+      },
+      "access_status": "Example configuration only; verify your own credentials, account entitlement and provider settings before a trial.",
+      "inference_validated": false,
+      "sources": [
+        "https://docs.z.ai/guides/llm/glm-5.3",
+        "https://docs.z.ai/api-reference/introduction",
+        "https://zcode.z.ai/en/docs/configuration"
+      ],
+      "configured_models": [
+        "glm-5.3"
+      ]
+    }
+  ],
+  "comparison_config": "configs/model-comparison.example.json"
+}

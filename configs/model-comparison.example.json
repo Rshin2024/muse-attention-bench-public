@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task": "muse_attention_decode",
+  "cohort": "attention-comparison-001",
+  "profile": "configs/documented-competition-v1.json",
+  "repetitions_per_model": 3,
+  "wall_clock_seconds": 1800,
+  "diagnostic_budget": 3,
+  "expose_baseline": true,
+  "effort": "high",
+  "context_budget": {
+    "max_input_tokens": 128000,
+    "max_output_tokens": 32768,
+    "context_management": "identical runner policy required"
+  },
+  "tool_policy": {
+    "runner": "supply exact runner name, revision and prompt policy",
+    "network": "disabled",
+    "allowed_tools": [
+      "shell",
+      "gpu_diagnostic_bridge"
+    ],
+    "reference_solutions": "unavailable",
+    "diagnostic_cases_per_request": 2,
+    "sandbox": "supply exact container or VM enforcement policy"
+  },
+  "models": [
+    {
+      "model": "gpt-6.1-sol",
+      "provider": "openai"
+    },
+    {
+      "model": "gpt-6-astra",
+      "provider": "openai"
+    },
+    {
+      "model": "claude-opus-5-5",
+      "provider": "anthropic"
+    },
+    {
+      "model": "claude-fable-5-1",
+      "provider": "anthropic"
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "provider": "deepseek"
+    },
+    {
+      "model": "gemini-4-argon",
+      "provider": "gemini"
+    },
+    {
+      "model": "glm-5.3",
+      "provider": "glm"
+    }
+  ],
+  "notes": "Configured seven-model roster; no actors, API calls or GPU runs are launched by this file. Freeze the same profile, prompt, initial files, high effort, context/tool policy and runtime identity before trials. Entitlement is unverified unless separately recorded. The 30-minute research cap is distinct from the official 15-minute per-GPU-run limit.",
+  "inference_enabled": false
+}

@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "currency": "USD",
+  "token_unit": 1000000,
+  "verified_on": "2026-11-07",
+  "verification_timezone": "America/Los_Angeles",
+  "purpose": "Published-tariff estimates and conservative budget reservations, not invoices",
+  "service_policy": "Standard/default, global routing, native token API only; no Batch, Flex, Fast/Priority, tools, regional/residency uplift, subscription credits, negotiated discounts or taxes in the base rates",
+  "common_input_cap": 128000,
+  "usage_category_policy": "Input, cached-input and cache-write token categories are mutually exclusive. When input_total includes cached/write tokens, subtract those subsets before base-input billing. Output uses the provider total; nested reasoning/thought counters are not added again.",
+  "unknown_usage_policy": "Unknown usage, routing, account plan or billed extras must stay unknown, not zero. Reserve a conservative upper bound before a call; reconcile actual usage afterward.",
+  "models": {
+    "gpt-6.1-sol": {
+      "provider": "openai",
+      "input_per_million": 2.0,
+      "cached_input_per_million": 0.1,
+      "output_per_million": 10.0,
+      "cache_write_input_per_million": 2.5,
+      "rate_basis": "First-party Responses API, Standard/default, <=272000 input tokens",
+      "sources": [
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+      ],
+      "cache_write_policy": "Default 30-minute write rate; write tokens are a disjoint input category, not an additive charge on the same base input tokens.",
+      "long_context": {
+        "input_tokens_greater_than": 272000,
+        "rates": {
+          "input_per_million": 4.0,
+          "cached_input_per_million": 0.2,
+          "output_per_million": 15.0,
+          "cache_write_input_per_million": 5.0
+        }
+      }
+    },
+    "gpt-6-astra": {
+      "provider": "openai",
+      "input_per_million": 10.0,
+      "cached_input_per_million": 1.0,
+      "output_per_million": 50.0,
+      "cache_write_input_per_million": 12.5,
+      "rate_basis": "First-party Responses API, Standard/default, <=272000 input tokens",
+      "sources": [
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/models/gpt-6-astra"
+      ],
+      "cache_write_policy": "Default 30-minute write rate; write tokens are a disjoint input category, not an additive charge on the same base input tokens.",
+      "long_context": {
+        "input_tokens_greater_than": 272000,
+        "rates": {
+          "input_per_million": 20.0,
+          "cached_input_per_million": 2.0,
+          "output_per_million": 75.0,
+          "cache_write_input_per_million": 25.0
+        }
+      }
+    },
+    "claude-opus-5-5": {
+      "provider": "anthropic",
+      "input_per_million": 4.0,
+      "cached_input_per_million": 0.2,
+      "output_per_million": 20.0,
+      "cache_write_input_per_million": 5.0,
+      "rate_basis": "First-party Messages API, Standard/global; default cache write rate is 5 minutes",
+      "sources": [
+        "https://platform.claude.com/docs/en/about-claude/pricing"
+      ],
+      "cache_write_rates": {
+        "5m": 5.0,
+        "1h": 8.0
+      },
+      "long_context": "Listed rates cover the common 128000-token cohort cap; do not borrow older Opus long-context pricing."
+    },
+    "claude-fable-5-1": {
+      "provider": "anthropic",
+      "input_per_million": 10.0,
+      "cached_input_per_million": 0.25,
+      "output_per_million": 50.0,
+      "cache_write_input_per_million": 12.5,
+      "rate_basis": "First-party Messages API, Standard/global; default cache write rate is 5 minutes",
+      "sources": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://platform.claude.com/docs/en/models/fable-5-1/overview"
+      ],
+      "cache_write_rates": {
+        "5m": 12.5,
+        "1h": 20.0
+      },
+      "long_context": "Listed rates cover the common 128000-token cohort cap."
+    },
+    "deepseek-v4-pro": {
+      "provider": "deepseek",
+      "input_per_million": 1.32,
+      "cached_input_per_million": 0.044,
+      "output_per_million": 3.96,
+      "cache_write_input_per_million": 1.32,
+      "rate_basis": "Conservative peak tariff for budget reservation; actual request cost must select peak/off_peak by UTC timestamp",
+      "sources": [
+        "https://api-docs.deepseek.com/quick_start/pricing/"
+      ],
+      "model_version": "DeepSeek-V4-Pro-0813",
+      "rate_tiers": {
+        "peak": {
+          "input_per_million": 1.32,
+          "cached_input_per_million": 0.044,
+          "output_per_million": 3.96,
+          "cache_write_input_per_million": 1.32
+        },
+        "off_peak": {
+          "input_per_million": 0.66,
+          "cached_input_per_million": 0.022,
+          "output_per_million": 1.98,
+          "cache_write_input_per_million": 0.66
+        }
+      },
+      "schedule": {
+        "timezone": "UTC",
+        "peak_weekdays": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "peak_intervals_half_open": [
+          [
+            "01:00",
+            "04:00"
+          ],
+          [
+            "06:00",
+            "10:00"
+          ]
+        ],
+        "all_weekends_off_peak": true,
+        "chinese_public_holidays_off_peak": true,
+        "holiday_calendar_status": "Not embedded; on weekday holidays use a verified calendar or retain conservative peak estimate."
+      },
+      "cache_write_policy": "No separately billed write category is listed. If a normalizer emits a disjoint creation-token category, price it at the cache-miss input rate; do not also bill those tokens as uncached input."
+    },
+    "gemini-4-argon": {
+      "provider": "gemini",
+      "input_per_million": 4.0,
+      "cached_input_per_million": 0.2,
+      "output_per_million": 20.0,
+      "cache_write_input_per_million": 4.0,
+      "rate_basis": "Conservative gross estimate: Standard/global tariff before conditional 50-percent promotional credits",
+      "sources": [
+        "https://cloud.google.com/model-garden/pricing",
+        "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-argon"
+      ],
+      "gross_rate_derivation": "The current Standard/global table displays 2.00/0.10/10.00 and states promotion is 50-percent credits back; gross rates are derived by reversing that credit and equal the published December 1 regular tariff.",
+      "promotional_net_rates": {
+        "through_date": "2026-11-30",
+        "input_per_million": 2.0,
+        "cached_input_per_million": 0.1,
+        "output_per_million": 10.0,
+        "cache_write_input_per_million": 2.0,
+        "credit_fraction": 0.5,
+        "automatic_budget_reduction_allowed": false,
+        "credit_eligibility_or_invoice_verified": false
+      },
+      "standard_non_global_gross_rates": {
+        "input_per_million": 4.4,
+        "cached_input_per_million": 0.22,
+        "output_per_million": 22.0,
+        "cache_write_input_per_million": 4.4
+      },
+      "promotional_non_global_net_rates": {
+        "input_per_million": 2.2,
+        "cached_input_per_million": 0.11,
+        "output_per_million": 11.0,
+        "cache_write_input_per_million": 2.2
+      },
+      "cache_write_policy": "Only implicit/durable caching is supported. No distinct write-token SKU is listed; a disjoint creation-token category aliases the uncached-input rate.",
+      "reasoning_output_policy": "Output rate covers both response and reasoning tokens. Do not double-count thoughts when provider total output already includes them.",
+      "future_failed_long_decode_billing": {
+        "effective_date": "2026-11-13",
+        "description": "Retrievable completion usage above 32K can be charged even when a request fails due to a client/server timeout. Preserve usage from partial/failed calls; unknown usage is not zero."
+      }
+    },
+    "glm-5.3": {
+      "provider": "glm",
+      "input_per_million": 1.4,
+      "cached_input_per_million": 0.26,
+      "output_per_million": 4.4,
+      "cache_write_input_per_million": 1.4,
+      "rate_basis": "Z.ai general prepaid API tariff, USD; not Coding Plan subscription allocation",
+      "sources": [
+        "https://docs.z.ai/guides/overview/pricing",
+        "https://docs.z.ai/guides/llm/glm-5.3"
+      ],
+      "account_plan": "general_prepaid",
+      "account_plan_confirmation_required": true,
+      "coding_plan_allocated_cost": null,
+      "coding_plan_policy": "A Coding Plan subscription is not a zero-cost API rate. Record its actual subscription allocation/quota policy separately; do not label general prepaid tariff as an actual Coding Plan bill.",
+      "cache_write_policy": "No distinct write-token rate is listed. A disjoint creation-token category aliases the input rate; cached storage is currently described as limited-time free, not a guaranteed permanent rate."
+    }
+  }
+}
